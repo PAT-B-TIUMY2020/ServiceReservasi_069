@@ -15,7 +15,17 @@ namespace ServiceReservasi
         SqlConnection connection;
         SqlCommand com;
 
+        public List<DataRegister> DataRegistest()
+        {
+            throw new NotImplementedException();
+        }
+
         public string deletePesanan(string IDPemesanan)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string DeleteRegister(string username)
         {
             throw new NotImplementedException();
         }
@@ -59,7 +69,22 @@ namespace ServiceReservasi
             return string.Format("You entered: {0}", value);
         }
 
-      
+        public string Login(string username, string password)
+        {
+            string kategori = " ";
+
+            string sql = "select Kategori from Login where Username='" + username + "' and Password='" + password + "'";
+            connection = new SqlConnection(constring);
+            com = new SqlCommand(sql, connection);
+            connection.Open();
+            SqlDataReader reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                kategori = reader.GetString(0)
+            }
+            return kategori;
+
+        }
 
         public string pemesanan(string IDPemesanan, string NamaCustomer, string NoTelepon, int JumlahPemesanan, string IDLokasi)
         {
@@ -85,7 +110,17 @@ namespace ServiceReservasi
             throw new NotImplementedException();
         }
 
+        public string Register(string username, string password, string kategori)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<CekLokasi> ReviewLokasi()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string UpdateRegister(string username, string password, string kategori, int id)
         {
             throw new NotImplementedException();
         }
